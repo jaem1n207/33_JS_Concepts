@@ -84,11 +84,6 @@ callback();
 코드가 실행되면 콘솔에 다음과 같이 출력됩니다.
 <img src="https://user-images.githubusercontent.com/50766847/86096527-5b99a480-baee-11ea-8fca-844781baac44.PNG" />
 Why? 종료 점이없는 재귀 함수 (자체를 호출하는 함수)로 인해 스택영역의 사이즈가 오버해 위와 같은 현상(스택 오버플로)이 발생합니다. 브라우저 (호스팅 환경)에는 스택 오류가 발생하기 전에 수용 할 수있는 최대 스택 호출이 있습니다.
-
-### 🤔왜 필요한가? 
-먼저, JavaScript Engine은 주요하게 두 가지 구성 요소를 가지고 있습니다.
-* Heap Memory: 객체, 전역 변수 등을 위한 메모리 할당, 구조화되지 않은 넓은 메모리 영역
-* Stack Memory: 함수의 CallStack, 지역 변수를 위한 메모리 할당
 <br></br>
 **[⬆  Back to Top](#목차)**
 
