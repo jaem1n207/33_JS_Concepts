@@ -14,13 +14,13 @@
 
 1. **[호출 스택](#1-호출-스택)**
 1. **[원시 자료형](#2-원시-자료형)**
-1. **[값 타입(Value Type)과 참조 타입(Refecrence Type)](#3-값 타입(Value Type)과 참조 타입(Refecrence Type))**
+1. **[값 타입(Value Type)과 참조 타입(Refecrence Type)](#3-값-타입value-type과-참조-타입refecrence-type)**
 
 ---
 
 ## 1. 호출 스택
 
-3123123123123123
+
 
 **[⬆  Back to Top](#목차)**
 
