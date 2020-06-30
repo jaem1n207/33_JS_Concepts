@@ -10,6 +10,8 @@
 [Stephen Curtis](https://twitter.com/stephenthecurt)의 저서를 기반으로 만들어졌으며, [이곳](https://medium.com/@stephenthecurt/33-fundamentals-every-javascript-developer-should-know-13dd720a90d1)에서 
 해당 저서를 읽을 수 있습니다
 
+<br></br>
+
 ## 목차
 
 1. **[호출 스택](#1-호출-스택)**
@@ -20,7 +22,7 @@
 
 ## 1. 호출 스택
 
-
+설명
 
 **[⬆  Back to Top](#목차)**
 
