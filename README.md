@@ -19,10 +19,77 @@
 
 ---
 
+## 들어가기 전에...
+JavaScript는 CallStack, EventQueue를 이용하여 Single Thread 기반으로 비동기적으로 동작합니다. Sigle Thread 기반에서는 단 <strong>하나의 CallStack</strong>만 존재하기 때문에 네트워크 요청 등 비용이 많이 드는 연산을 수행하게 되면 매우 비효율적으로 동작됩니다. 이러한 문제점을 어떻게 해결하는지 하나씩 확인해봅시다.
+
 ## 1. 호출 스택
 
-설명
+### ✔호출 스택이란 무엇인가?
+함수의 호출을 기록하는 (LIFO)자료구조입니다. 호출 스택은 주로 함수 호출 (호출)에 사용됩니다. 호출 스택은 단일이므로 함수 실행이 한 번에 하나씩 위에서 아래로 수행됩니다. -> 호출 스택이 동기적임을 의미.
 
+LIFO를 보여주는 코드 샘플 
+<pre>
+<code>
+function three() {
+  console.log("three!");
+}
+function two() {
+  console.log("two");
+
+  three();
+  console.log("back to two");
+}
+function one() {
+  console.log("one");
+
+  two();
+  console.log("back to one");
+}
+function zero() {
+  console.log("zero");
+
+  one();
+  console.log("back to zero");
+}
+zero();
+</code>
+</pre>
+코드가 실행되면 콘솔에 다음과 같이 출력됩니다.
+<img src="https://user-images.githubusercontent.com/50766847/86094924-1f654480-baec-11ea-8308-423a55a4647f.PNG" />
+
+1. <code>zero()</code>실행되면 빈 스택 프레임이 생성됩니다. 프로그램의 주요 (익명)진입점입니다.
+2. "zero"를 콘솔로 출력합니다. <code>zero()</code>다음 호출 <code>one()</code>스택으로 푸시됩니다.
+3. "one"을 콘솔로 출력합니다. <code>one()</code>다음 호출 <code>two()</code>스택으로 푸시됩니다.
+4. "two"를 콘솔로 출력합니다. <code>two()</code>다음 호출 <code>three()</code>스택으로 푸시됩니다.
+5. "three!"를 콘솔로 출력합니다. <code>three()</code>스택에서 튀어 나옵니다.
+6. 실행 순서로 이동합니다<code>two()</code>.
+7. <code>two()</code>"back to two"를 콘솔로 출력합니다. 
+8. <code>two()</code>스택에서 튀어 나옵니다.
+9. 실행 순서로 이동합니다<code>one()</code>.
+10. <code>one()</code>"back to one"을 콘솔로 출력합니다.
+11. <code>one()</code>스택에서 튀어 나옵니다.
+12. 실행 순서로 이동합니다<code>zerio()</code>.
+13. <code>zero()</code>"back to zero"를 콘솔로 출력합니다.
+14 <code>zero()</code>를 튀어 나와 메모리를 비웁니다.
+
+스택 오버플로 코드 샘플
+<pre>
+<code>
+function callback() {
+  callback();
+}
+callback();
+</code>
+</pre>
+코드가 실행되면 콘솔에 다음과 같이 출력됩니다.
+<img src="https://user-images.githubusercontent.com/50766847/86096527-5b99a480-baee-11ea-8fca-844781baac44.PNG" />
+Why? 종료 점이없는 재귀 함수 (자체를 호출하는 함수)로 인해 스택영역의 사이즈가 오버해 위와 같은 현상(스택 오버플로)이 발생합니다. 브라우저 (호스팅 환경)에는 스택 오류가 발생하기 전에 수용 할 수있는 최대 스택 호출이 있습니다.
+
+### 🤔왜 필요한가? 
+먼저, JavaScript Engine은 주요하게 두 가지 구성 요소를 가지고 있습니다.
+* Heap Memory: 객체, 전역 변수 등을 위한 메모리 할당, 구조화되지 않은 넓은 메모리 영역
+* Stack Memory: 함수의 CallStack, 지역 변수를 위한 메모리 할당
+<br></br>
 **[⬆  Back to Top](#목차)**
 
 ---
