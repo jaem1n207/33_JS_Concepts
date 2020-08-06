@@ -24,12 +24,11 @@
 ## ✋ 들어가기 전에...
 JavaScript는 CallStack, EventQueue를 이용하여 Single Thread 기반으로 비동기적으로 동작합니다. Sigle Thread 기반에서는 단 <strong>하나의 CallStack</strong>만 존재하기 때문에 네트워크 요청 등 비용이 많이 드는 연산을 수행하게 되면 매우 비효율적으로 동작됩니다. 이러한 문제점을 어떻게 해결하는지 하나씩 확인해봅시다.
 
-### ✔호출 스택이란 무엇인가?
+## ✔ 호출 스택이란 무엇인가?
 함수의 호출을 기록하는 (LIFO)자료구조입니다. 호출 스택은 주로 함수 호출 (호출)에 사용됩니다. 호출 스택은 단일이므로 함수 실행이 한 번에 하나씩 위에서 아래로 수행됩니다. -> 호출 스택이 동기적임을 의미.
 
 LIFO를 보여주는 코드 샘플 
-<pre>
-<code>
+```JavaScript
 function three() {
   console.log("three!");
 }
@@ -52,8 +51,7 @@ function zero() {
   console.log("back to zero");
 }
 zero();
-</code>
-</pre>
+```
 코드가 실행되면 콘솔에 다음과 같이 출력됩니다.
 <img src="https://user-images.githubusercontent.com/50766847/86094924-1f654480-baec-11ea-8308-423a55a4647f.PNG" />
 
@@ -73,14 +71,12 @@ zero();
 14 <code>zero()</code>를 튀어 나와 메모리를 비웁니다.
 
 스택 오버플로 코드 샘플
-<pre>
-<code>
+```JavaScript
 function callback() {
   callback();
 }
 callback();
-</code>
-</pre>
+```
 코드가 실행되면 콘솔에 다음과 같이 출력됩니다.
 <img src="https://user-images.githubusercontent.com/50766847/86096527-5b99a480-baee-11ea-8fca-844781baac44.PNG" />
 Why? 종료 점이없는 재귀 함수 (자체를 호출하는 함수)로 인해 스택영역의 사이즈가 오버해 위와 같은 현상(스택 오버플로)이 발생합니다. 브라우저 (호스팅 환경)에는 스택 오류가 발생하기 전에 수용 할 수있는 최대 스택 호출이 있습니다.
@@ -92,11 +88,28 @@ Why? 종료 점이없는 재귀 함수 (자체를 호출하는 함수)로 인해
 ## 2. 원시 자료형
 
 ## ✋ 들어가기 전에...
-프로그래밍 언어에서 숫자나 문자열같은 것들은 자료형(Data type)이라 부릅니다. 자료형은 변수에 저장하는 데이터의 종류를 말하며 JavaScript에서는 자료형을 크게 원시타입 6개와 객체타입 1개로 총 7개(undefined, null, boolean, Number, Bigint, string, Symbol)가 있으며 원시 자료형은 다음과 같은 특징을 지니고 있습니다.
+JavaScript는 동적언어입니다. JavaScript의 변수는 특정 값 유형과 직접적으로 연관되어 있지 않으며 모든 유형의 변수를 할당(다시 할당) 할 수 있습니다.
+
+```JavaScript
+1 | let foo = 42; // foo is now a number
+2 | foo = 'bar';  // foo is now a string
+3 | foo = true;   // foo is now a boolean
+```
+
+
+## 특징
+프로그래밍 언어에서 숫자나 문자열같은 것들은 자료형(Data type)이라 부릅니다. 자료형은 변수에 저장하는 데이터의 종류를 말하며 JavaScript에서는 자료형을 크게 원시타입 6개(undefined, null, Boolean, Number, String, Symbol)와 객체타입 1개(Object)로 총 7개가 있으며 원시 자료형은 다음과 같은 특징을 지니고 있습니다.
 * 원시 타입은 불변적입니다.
 * 원시 타입은 값으로 저장, 객체들은 참조로 저장됩니다.
 * 어떠한 메소드를 가지지 않습니다.
-* Type을 알고 싶다면 typeof연산자를 쓰면 됩니다.
+* Type을 알고 싶다면 typeof연산자를 쓰면 됩니다.   
+> Boolean, Number, String, Symbol은 원시타입이면서 객체입니다. (**[Wrapper Object](#wrapper-object)**) 
+> 
+
+### ✔ Boolean
+Boolean은 논리적 엔티티를 나타내며 다음 두가지 값을 가질 수 있습니다: `true` and `false`. 자세한 내용은 [Boolean](https://developer.mozilla.org/en-US/docs/Glossary/Boolean "Go More Detail Boolean") 과 [Boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean "Go More Detail Boolean")을 참조해주세요.
+
+### ✔ Wrapper Object
 
 
 **[⬆  Back to Top](#목차)**
