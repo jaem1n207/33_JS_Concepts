@@ -120,7 +120,7 @@ JavaScript는 동적언어입니다. JavaScript의 변수는 특정 값 유형�
 > 원시 타입은 값(value)으로 저장되고, 객체들은 참조(reference)로 저장됩니다.
 
 ### ✔ Boolean
-Boolean은 논리적 엔티티를 나타내며 다음 두가지 값을 가질 수 있습니다: `true` and `false`. 자세한 내용은 [Boolean](https://developer.mozilla.org/en-US/docs/Glossary/Boolean "Go More Detail Boolean") 과 [Boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean "Go More Detail Boolean")을 참조해주세요.
+Boolean은 논리적 엔티티를 나타내며 다음 두가지 값을 가질 수 있습니다: `true` and `false`. 자세한 내용은 [Boolean](https://developer.mozilla.org/en-US/docs/Glossary/Boolean "Go More Detail Boolean") 과 [Boolean Description](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean "Go More Detail Boolean")을 참조해주세요.
 
 ### Wrapper Object
 이름처럼 래퍼는 원시 타입의 값을 감싸는 형태의 객체입니다.
