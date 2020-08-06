@@ -138,7 +138,7 @@ Null유형에는 정확히 하나의 값이 있습니다: `null`. 자세한 내�
 let a;
 console.log(a); // undefiend
 ```
-<strong>Undefined가 나오는 경우의 예 </strong>
+<strong>Undefined가 나오는 경우의 예</strong>
 
 존재하지 않는 객체의 프로퍼티를 읽으려고 할 때
 ```JavaScript
@@ -150,10 +150,12 @@ console.log(obj.a); // undefined
 let arr = [1, 2, 3];
 console.log(arr[10]); // undefined
 ```
-<strong> Null과 Undefined </string>
+<strong>Null과 Undefined</strong>
 * 둘은 모두 존재하지 않는 것을 나타냅니다.
 * null: 변수를 선언하고 'null'이라는 빈 값을 할당한 경우이며, 타입을 확인해보면 'object'입니다. (존재하지 않음이라는 값)
 * undefined: 접근 가능한 스코프에 변수가 선언되었으나 현재 아무런 값도 할당되지 않은 상태이며, 타입을 확인해보면 'undefined'입니다. (정의 되지 않음이라는 값)
+
+<br />
 
 ### Wrapper Object
 이름처럼 래퍼는 원시 타입의 값을 감싸는 형태의 객체입니다.
@@ -186,6 +188,7 @@ food === "apple"; // false
   length: 5
 }
 ```
+<br />
 
 ### Autoboxing
 일반 함수에서 this는 window 객체를 가르키게 됩니다. this가 window 객체 (global object)를 가르키는 이유는 autoboxing 덕분입니다.
