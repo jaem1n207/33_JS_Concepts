@@ -103,13 +103,13 @@ JavaScript는 동적언어입니다. JavaScript의 변수는 특정 값 유형�
 * 원시 타입은 값으로 저장, 객체들은 참조로 저장됩니다.
 * 어떠한 메소드를 가지지 않습니다.
 * Type을 알고 싶다면 typeof연산자를 쓰면 됩니다.   
-> Boolean, Number, String, Symbol은 원시타입이면서 객체입니다. **[Wrapper Object](#wrapper-object)**
+> Boolean, Number, String, Symbol은 원시타입이면서 객체입니다. **[Wrapper Object](#✔-wrapper-object)**
 > 
 
 ### ✔ Boolean
 Boolean은 논리적 엔티티를 나타내며 다음 두가지 값을 가질 수 있습니다: `true` and `false`. 자세한 내용은 [Boolean](https://developer.mozilla.org/en-US/docs/Glossary/Boolean "Go More Detail Boolean") 과 [Boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean "Go More Detail Boolean")을 참조해주세요.
 
-### Wrapper Object
+### ✔ Wrapper Object
 
 
 **[⬆  Back to Top](#목차)**
