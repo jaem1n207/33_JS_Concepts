@@ -122,6 +122,39 @@ JavaScript는 동적언어입니다. JavaScript의 변수는 특정 값 유형�
 ### ✔ Boolean
 Boolean은 논리적 엔티티를 나타내며 다음 두가지 값을 가질 수 있습니다: `true` and `false`. 자세한 내용은 [Boolean](https://developer.mozilla.org/en-US/docs/Glossary/Boolean "Go More Detail Boolean") 과 [Boolean Description](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean "Go More Detail Boolean")을 참조해주세요.
 
+### ✔ Null
+null은 NULL의 심볼이며, 의도를 갖고 변수에 null을 할당하여 값이 없다는 것을 나타냅니다. 아래의 코드에서는 null이 할당된 변수의 타입을 확인해 보면 object인 것을 확인하실 수 있습니다.
+```JavaScript
+let a = null;
+console.log(a); // null
+
+console.log(typeof a);  // object
+```
+Null유형에는 정확히 하나의 값이 있습니다: `null`. 자세한 내용은 [null](https://developer.mozilla.org/en-US/docs/Glossary/Null) 과 [Null Description](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null)을 참조해주세요.
+
+### ✔ Undefined
+변수에 값이 할당되어 있지 않은 상태라고 볼 수 있습니다.
+```JavaScript
+let a;
+console.log(a); // undefiend
+```
+<strong>Undefined가 나오는 경우의 예 </strong>
+
+존재하지 않는 객체의 프로퍼티를 읽으려고 할 때
+```JavaScript
+let obj = {};
+console.log(obj.a); // undefined
+```
+존재하지 않는 배열에 엘리먼트를 읽으려고 할 때
+```JavaScript
+let arr = [1, 2, 3];
+console.log(arr[10]); // undefined
+```
+<strong> Null과 Undefined </string>
+* 둘은 모두 존재하지 않는 것을 나타냅니다.
+* null: 변수를 선언하고 'null'이라는 빈 값을 할당한 경우이며, 타입을 확인해보면 'object'입니다. (존재하지 않음이라는 값)
+* undefined: 접근 가능한 스코프에 변수가 선언되었으나 현재 아무런 값도 할당되지 않은 상태이며, 타입을 확인해보면 'undefined'입니다. (정의 되지 않음이라는 값)
+
 ### Wrapper Object
 이름처럼 래퍼는 원시 타입의 값을 감싸는 형태의 객체입니다.
 `Boolean`, `Number`, `String`, `Symbol` 와 같은 원시타입을 `new` 키워드로 생성하면 원시타입에 대한 `Wrapper Object`가 생성됩니다.
