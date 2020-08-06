@@ -103,13 +103,43 @@ JavaScript는 동적언어입니다. JavaScript의 변수는 특정 값 유형�
 * 원시 타입은 값으로 저장, 객체들은 참조로 저장됩니다.
 * 어떠한 메소드를 가지지 않습니다.
 * Type을 알고 싶다면 typeof연산자를 쓰면 됩니다.   
-> Boolean, Number, String, Symbol은 원시타입이면서 객체입니다. **[Wrapper Object](#✔-wrapper-object)**
+> Boolean, Number, String, Symbol은 원시타입이면서 객체입니다. 참고: (**[Wrapper Object](#wrapper-object)**)
 > 
 
 ### ✔ Boolean
 Boolean은 논리적 엔티티를 나타내며 다음 두가지 값을 가질 수 있습니다: `true` and `false`. 자세한 내용은 [Boolean](https://developer.mozilla.org/en-US/docs/Glossary/Boolean "Go More Detail Boolean") 과 [Boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean "Go More Detail Boolean")을 참조해주세요.
 
-### ✔ Wrapper Object
+### Wrapper Object
+이름처럼 래퍼는 원시 타입의 값을 감싸는 형태의 객체입니다.
+`Boolean`, `Number`, `String`, `Symbol` 와 같은 원시타입을 `new` 키워드로 생성하면 원시타입에 대한 `Wrapper Object`가 생성됩니다.
+`String`은 문자열이 인자로 들어왔을 때, 원시 문자열을 생성하는 전역함수입니다. `String`은 인자로 들어온 값을 문자열로 바꾸려합니다.
+```JavaScript
+String(); // ""
+String(true)  // "true"
+String(null)  // "null"
+String(undefined) // "undefined"
+String(1234)  // "1234"
+String("JavaScript") === "JavaScript" // "true"
+typeof String("JavaScript");  // "String"
+```
+하지만 `new` 키워드를 붙인다면 `String`은 여전히 생성자 함수로도 쓰일 수 있습니다.
+```JavaScript
+const food = new String("apple");
+typeof food; // "object"
+food === "apple"; // false
+```
+그리고 위의 생성자는 `Wrapper Object`라고 불리는 새로운 Object를 만듭니다.
+위의 코드에서 새로운 Object는 "apple"이라는 문자열을 다음과 같은 프로퍼티로 나타냅니다.
+```JavaScript
+{
+  0: "a",
+  1: "p",
+  2: "p",
+  3: "l",
+  4: "e",
+  length: 5
+}
+```
 
 
 **[⬆  Back to Top](#목차)**
