@@ -121,6 +121,15 @@ JavaScript는 동적언어입니다. JavaScript의 변수는 특정 값 유형�
 
 ### ✔ Boolean
 Boolean은 논리적 엔티티를 나타내며 다음 두가지 값을 가질 수 있습니다: `true` and `false`. 자세한 내용은 [Boolean](https://developer.mozilla.org/en-US/docs/Glossary/Boolean "Go More Detail Boolean") 과 [Boolean Description](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean "Go More Detail Boolean")을 참조해주세요.
+```JavaScript
+function acceptsBoolean(value: boolean) {
+  // ...
+}
+
+acceptsBoolean(true);     // Works!
+acceptsBoolean(false);    // Works!
+acceptsBoolean("apple");  // Error!
+```
 
 ### ✔ Null
 null은 NULL의 심볼이며, 의도를 갖고 변수에 null을 할당하여 값이 없다는 것을 나타냅니다. 아래의 코드에서는 null이 할당된 변수의 타입을 확인해 보면 object인 것을 확인하실 수 있습니다.
@@ -150,10 +159,59 @@ console.log(obj.a); // undefined
 let arr = [1, 2, 3];
 console.log(arr[10]); // undefined
 ```
-<strong>Null과 Undefined</strong>
+✔ <strong>Null과 Undefined</strong>
 * 둘은 모두 존재하지 않는 것을 나타냅니다.
 * null: 변수를 선언하고 'null'이라는 빈 값을 할당한 경우이며, 타입을 확인해보면 'object'입니다. (존재하지 않음이라는 값)
 * undefined: 접근 가능한 스코프에 변수가 선언되었으나 현재 아무런 값도 할당되지 않은 상태이며, 타입을 확인해보면 'undefined'입니다. (정의 되지 않음이라는 값)
+```JavaScript
+function acceptsNull(value: null) {
+  /* ... */
+}
+
+function acceptsUndefined(value: void) {
+  */ ... */
+}
+
+acceptsNull(null);      // Works!
+acceptsNull(undefined); // Error!
+acceptsUndefined(null);       // Error!
+acceptsUndefined(undefined);  // Works!
+```
+`null`과 `void` 또한 다른 유형으로 나타납니다.
+
+### ✔ Number
+숫자의 자료형을 의미합니다. <strong>정수만을 표현하기 위한 특별한 자료형은 없습니다.</strong> 부동 소수점을 표현할 수 있는 것 말고도, Number 타입은 세 가지 의미있는 몇가지 상징적인 값들도 표현할 수 있습니다. 이 값에는 `+Infinity`, `-Infinity`, `NaN(<strong>N</strong>ot a <strong>N</strong>umber")`이 있습니다. 
+```JavaScript
+function acceptsNumber(value: number) {
+  // ...
+}
+
+acceptsNumber(10);        // Works!
+acceptsNumber(3.14);      // Works!
+acceptsNumber(NaN);       // Works!
+acceptsNumber(Infinity);  // Works!
+acceptsNumber("apple");   // Error!
+```
+
+### ✔ String
+JavaScript의 `String` 타입은 문자열을 의미하며, 텍스트 데이터를 나타내는데 사용합니다. " 쌍따옴표 또는' 홑따옴표, 백틱 안에 텍스트를 기입하는 방식으로 사용합니다. 단, 주의해야할 점은 쌍따옴표로 시작하면 쌍따옴표로, 홑따옴표로 시작하면 홑따옴표로 끝내야 합니다.
+```JavaScript
+function acceptsString(value: string) {
+  //  ...
+}
+
+acceptsString("apple"); // Works!
+acceptsString(false);   // Error!
+```
+JavaScript는 다른 유형의 값을 혼합하여 암시적으로 문자열로 반환합니다.
+```JavaScript
+"apple" + 10; // "apple10"
+"apple" + {}; // "apple[object Object]"
+```
+
+
+### Symbol
+Symbol 은 ECMAScript6 에서 추가되었습니다. 
 
 <br />
 
