@@ -208,10 +208,28 @@ JavaScript는 다른 유형의 값을 혼합하여 암시적으로 문자열로 
 "apple" + 10; // "apple10"
 "apple" + {}; // "apple[object Object]"
 ```
+Flow는 문자열과 숫자를 문자열에 결합할 때만 허용됩니다.
+```JavaScript
+"apple" + "apple";  // Works!
+"apple" + 10;       // Works!
+"apple" + {};       // Error!
+"apple" + [];       // Error!
+```
+명시적이어야 하며 다른 유형을 문자열로 변환해야 합니다. 문자열 방법을 사용하거나 값의 문자열을 구분하는 다른 방법을 사용하여 이 작업을 수행할 수 있습니다.
+```JavaScript
+"apple" + String({});     // Works!
+"apple" + [].toString();  // Works!
+"" + JSON.stringify({});  // Works!
+```
+또한 `string`과 `String`은 다른 유형입니다. 
 
-
-### Symbol
-Symbol 은 ECMAScript6 에서 추가되었습니다. 
+### ✔ Symbol
+Symbol 은 ECMAScript6 에서 추가되었습니다. Symbol은 항상 <strong>유일</strong>하고 <strong>변경 불가능한</strong> (immutable) 기본값입니다. 또한, 객체 속성의 <strong>key 값으로도 사용</strong>될 수 있으며, Symbol은 다음과 같은 특징을 지닙니다.
+ 1. symbol의 값을 외부에 노출시키지 않습니다.
+ 1. 객체의 프로퍼티를 symbol로 만들면 Object.getOwnPropertyNames() 반환 값에서 제외됩니다.    [Object.getOwnPropertyNames()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyNames)
+ 1. value에 접근할 때는 []를 통해 접근해야 합니다. .을 통해 접근하면 undefined가 반환됩니다.
+ 
+또, C 언어의 이름있는 열거형(enum)과도 비슷합니다. 좀 더 자세히 알아보려면, JavaScript의 [Symbol](https://developer.mozilla.org/ko/docs/Glossary/Symbol) 와 [Symbol](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Symbol) 객체 래퍼를 참조해주세요.
 
 <br />
 
