@@ -335,7 +335,10 @@ console.log(a); // 10
 참조 유형에는 다른 값이 포함될 수 있습니다. 참조 유형의 내용은 변수에 사용할 수 있는 고정 메모리 양에 맞지 않으므로 참조 유형의 메모리 내 값은 참조 자체(메모리 주소)입니다.
 * Array
 * Object
-* Function
+* Function 
+
+</br>
+
 <strong>참조 복사의 예</strong>
 ```JavaScript
 var a = { c: 10 };  // 새로운 개체의 참조를 a에 할당
