@@ -302,7 +302,46 @@ foo.bar = "abc";  // Uncaught TypeError: Cannot set property 'bar' of null
 
 ## 3. 값 타입(Value Type)과 참조 타입(Refecrence Type)
 
-설명
+## ✋ 들어가기 전에...
+* JavaScript에는 두가지 종류의 변수가 있습니다. 원시적 변수와 참조 변수입니다.
+* 모든 변수를 생성한 후에는 고정 메모리 양이 예약됩니다.
+* 변수가 복사되면 메모리 내 값이 복사됩니다.
+* call을 통해 변수를 함수에 전달하면 해당 변수의 복사본이 생성됩니다.
+
+### ✔ 값 타입(Value Type)
+JavaScript는 <strong>값에 의한 전달</strong>이 일어나는 데이터타입(Boolean, String, Number.. 등)을 가지고 있습니다. 그리고 이러한 데이터타입을 <strong>원시 타입</strong>이라고 부릅니다. 원시 유형의 메모리 내 값은 실제 값입니다.
+<strong>값에 의한 복사의 예</strong>
+```JavaScript
+var a = 10;
+var b = "apple";
+
+var x = a;
+var y = b;
+
+console.log(a, b, x, y);  // 10 
+```
+`a`와 `x`는 둘 다 지금 10이라는 값을 가지고 있습니다. 그리고 `b`와 `y`는 현재 둘 다 "apple"이라는 값을 가지고 있습니다. 하지만 값들이 복사되었기 때문에 이들은 분리되어 있습니다. 같은 값을 가진 변수 하나를 바꾸더라도 다른 변수에는 아무런 영향이 없습니다. 각각의 변수들이 아무런 관계도 없다고 생각하면 됩니다. 아래의 코드를 보시면 이해가 잘 될 것입니다.
+```JavaScript
+var a = 10;     // a에 10을 지정
+var b = a;      // a값을 b에 복사
+  b = 20;       // b에 20을 지정
+console.log(a); // 10
+```
+=> 원본은 변경되지 않았으며, 사본만 변경할 수 있습니다.
+
+### ✔ 참조 타입(Reference Type)
+참조 유형에는 다른 값이 포함될 수 있습니다. 참조 유형의 내용은 변수에 사용할 수 있는 고정 메모리 양에 맞지 않으므로 참조 유형의 메모리 내 값은 참조 자체(메모리 주소)입니다.
+* Array
+* Object
+* Function
+<strong>참조 복사의 예</strong>
+```JavaScript
+var a = { c: 10 };  // 새로운 개체의 참조를 a에 할당
+var b = a;          // a내부 개체의 참조를 새 변수 b에 복사
+b.c = 20;           // b의 내용을 수정
+console.log(a);     // { c: 20 }
+```
+=> 원본도 참조가 복사되었기에 변경되었습니다.
 
 **[⬆  Back to Top](#목차)**
 
