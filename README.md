@@ -527,15 +527,49 @@ take_walk(dog) # 개가 걷는다.
 ## 5. == vs === vs typeof
 
 ## 결론
-결론부터 얘기하자면 `===` 연산자가 `==` 연산자보다 좋습니다. 동등함을 비교해야할 때는 `===` 연산자를 쓰는 것을 <strong<권장</strong>합니다. `==`는 비교 전에 두 피연산자를 동일한 자료형으로 변환하고 `===`는 두 피연산자가 같은 자료형에, 그 내용도 일치해야만 참이 됩니다. 예를 들어, 숫자를 숫자 리터럴과 비교할 때 `==`는 <strong>true</strong>를 반환하게 되고, `===`는 <strong>false</strong>을 반환합니다. 그래서 `===` 연산자를 쓰는 것을 권장하고 가능한 `==` 연산자를 사용자히 않도록 하고, 대신 직접 자료형을 반환하여 보다 코드 가독성을 높이도록 합니다.
+결론부터 얘기하자면 당신이 JavaScript와 <strong>친숙하다면</strong> 예상치 못하게 강제변환 될 상황이 그렇게 많지 않고, 예측 가능한 상황이면 동등 비교 연산자를 사용하는 것이 낫습니다. 강제변환을 막으려고 방어적인 코드를 덕지덕지 붙이는 것보다는 강제 변환을 활용하여 좀 더 깔끔하게 작성하는게 더 도움이 되기 때문입니다. 하지만 당신이 JavaScript와 <strong>친숙하지 않다면</strong> `===` 연산자가 `==` 연산자보다 좋습니다. 동등함을 비교해야할 때는 `===` 연산자를 쓰는 것을 <strong>권장</strong>합니다. 예를 들어, 숫자를 숫자 리터럴과 비교할 때 `==`는 <strong>true</strong>를 반환하게 되고, `===`는 <strong>false</strong>을 반환합니다. 그래서 `===` 연산자를 쓰는 것을 권장하며 가능한 `==` 연산자를 사용하지 않도록 하고, 대신 직접 자료형을 반환하여 보다 코드 가독성을 높이도록 합니다.
 
 ### ✔ Loose Equals ( == )
-
+JavaScript에서 `==` 연산자를 쓰는 목적은 <strong>느슨한 동등 비교</strong>를 위함입니다.
+`==`는 비교 전에 두 피연산자의 자료형이 같지 않은 경우 같아지도록 <strong>강제 형변환</strong>을 수행한 후, 엄격 비교를 수행합니다. 피연산자가 모두 객체라면, JavaScript는 내부 참조를 보고, 둘 다 메모리의 같은 객체를 바라보고 있는지 판별합니다.
+이제 예제 코드를 봅시다.
+```JavaScript
+1 == 1            // true
+"1" == 1          // true
+1 == '1'          // true
+0 == false        // true
+0 == ""           // true
+0 == null         // false
+0 == undefined    // false
+null == undefined // true
+NaN == undefined  // false
+NaN == NaN        // false
+```
+여기서 중요한 점은 `NaN`은 어떤 것과도 <strong>같지 않다</strong>는 것을 기억해야 합니다. 심지어 자기 자신과도 동일하지 않습니다
+위 코드에 대한 설명은 다음 블로그를 참고해주세요. [위 예제코드 해설보러가기](https://corock.tistory.com/460)
 
 ### ✔ Strict Equals ( === )
+`===` 연산자는 자료형 변환 없이 두 연산자가 <strong>엄격히</strong> 같은지 판별합니다.
+이 의미는 두 피연산자의 <strong>타입</strong>과 <strong>값</strong>이 모두 같아야 한다는 의미입니다.
+예제 코드를 봅시다.
+```JavaScript
+5 === 5         // true
+true === true   // true
+5 === "5"       // false (숫자 타입 vs 문자열 타입
+"abc" === "qwe" // false (둘 다 문자열 타입이지만 다른 값을 가짐)
+false === 0     // false (다른 타입, 다른 값)
+```
 
 ### ✔ typeof
-
+`typeof` 연산자는 피연산자의 평가 전 자료형을 나타내는 문자열을 반환합니다. 
+```JavaScript
+console.log(typeof 1);    // "number"
+console.log(typeof "1");  // "string"
+console.log(typeof true); // "boolean"
+console.log(typeof undefined);  // "undefined"
+console.log(typeof null);       // "object"
+console.log(typeof NaN);        // "number"
+```
 
 **[⬆  Back to Top](#목차)**
 
