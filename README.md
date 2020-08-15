@@ -550,7 +550,7 @@ null == undefined // true
 NaN == undefined  // false
 NaN == NaN        // false
 ```
-여기서 중요한 점은 `NaN`은 어떤 것과도 <strong>같지 않다</strong>는 것을 기억해야 합니다. 심지어 자기 자신과도 동일하지 않습니다
+여기서 중요한 점은 `NaN`은 어떤 것과도 <strong>같지 않다는 것</strong>을 기억해야 합니다. 심지어 자기 자신과도 동일하지 않습니다
 위 코드에 대한 설명은 다음 블로그를 참고해주세요. [위 예제코드 해설보러가기](https://corock.tistory.com/460)
 
 ### ✔ Strict Equals ( === )
